@@ -1,80 +1,85 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, {useState} from "react"
 import {
   Nav,
   Navbar,
-  NavbarBrand,
   NavItem,
   NavbarToggler,
   Collapse,
   NavLink
 } from 'reactstrap'
 
-const Header = ({ siteTitle }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+import React, { Component } from 'react'
 
-  return(
-    <Navbar light color="light" expand="lg">
-      <NavbarBrand><Link to="/">Richard Liang</Link></NavbarBrand>
+class Header extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      isOpen: false,
+      links: {
+        "resume": "https://downloadmoreram.com/",
+        "linkedin" : "https://downloadmoreram.com/",
+        "email": "mailto:richard.y.liang@gmail.com",
+        "github": "https://downloadmoreram.com/"
+      }
+    }
+  }
+  
+  componentDidMount = () => {
+    fetch('https://raw.githubusercontent.com/RYLiang18/personal_site_json/main/links.json')
+      .then(response => response.json())
+      .then(data => {
+        console.log(typeof(data))
+        console.log(typeof(this.state.links))
+        this.setState({links: data})
+      })
+      .catch(err => {
+        alert(err)
+      })
+  }
 
-      <NavbarToggler onClick = {toggle}/>
+  render() {
+    console.log(this.state.links)
+    return (
+      <Navbar light color="light" expand="lg">
+      <Link className = "navbar-brand" to="/">Richard Liang</Link>
+
+      <NavbarToggler onClick = {() => this.setState({isOpen: !this.state.isOpen})}/>
       <Collapse
-        isOpen = {isOpen}
+        isOpen = {this.state.isOpen}
         navbar
       >
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink>
-              <Link to = "/experience">experience</Link>
-            </NavLink>
+            <Link className = "nav-link" to = "/experience">experience</Link>
           </NavItem>
           
           <NavItem>
-            <NavLink>
-              <Link to = "/projects">projects</Link>
-            </NavLink>
+            <Link className = "nav-link" to = "/projects">projects</Link>
           </NavItem>
 
           <NavItem>
-            <NavLink>
-              <Link to = "/">resume</Link>
-            </NavLink>
+            <Link className = "nav-link" to = {this.state.links.resume}>resume</Link>
+          </NavItem>
+
+          <NavItem>
+            <Link className = "nav-link" to = {this.state.links.github}>🐱</Link>
+          </NavItem>
+
+          <NavItem>
+            <Link className = "nav-link" to = {this.state.links.linkedin}>🔗</Link>
+          </NavItem>
+
+          <NavItem>
+            <NavLink href = {this.state.links.email}>📧</NavLink>
           </NavItem>
         </Nav>
       </Collapse>
     </Navbar>
-
-    /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DEFAULT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
-    // <header
-    //   style={{
-    //     background: `rebeccapurple`,
-    //     marginBottom: `1.45rem`,
-    //   }}
-    // >
-    //   <div
-    //     style={{
-    //       margin: `0 auto`,
-    //       maxWidth: 960,
-    //       padding: `1.45rem 1.0875rem`,
-    //     }}
-    //   >
-    //     <h1 style={{ margin: 0 }}>
-    //       <Link
-    //         to="/"
-    //         style={{
-    //           color: `white`,
-    //           textDecoration: `none`,
-    //         }}
-    //       >
-    //         {siteTitle}
-    //       </Link>
-    //     </h1>
-    //   </div>
-    // </header>
     )
+  }
 }
+
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
