@@ -6,7 +6,10 @@ import {
   NavItem,
   NavbarToggler,
   Collapse,
-  NavLink
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from 'reactstrap'
 
 import React, { Component } from 'react'
@@ -16,12 +19,9 @@ class Header extends Component {
     super(props)
     this.state = {
       isOpen: false,
-      links: {
-        "resume": "https://downloadmoreram.com/",
-        "linkedin" : "https://downloadmoreram.com/",
-        "email": "mailto:richard.y.liang@gmail.com",
-        "github": "https://downloadmoreram.com/"
-      }
+      dropdownOpen: false,
+      resumeLink: "",
+      links: []
     }
   }
   
@@ -29,64 +29,75 @@ class Header extends Component {
     fetch('https://raw.githubusercontent.com/RYLiang18/personal_site_json/main/links.json')
       .then(response => response.json())
       .then(data => {
-        console.log(typeof(data))
-        console.log(typeof(this.state.links))
-        this.setState({links: data})
+        this.setState({
+          resumeLink: data.resume,
+          links: data.links
+        })
       })
       .catch(err => {
         alert(err)
       })
   }
 
+
+
   render() {
-    console.log(this.state.links)
+    
+    var moreOfMeLinks = this.state.links.map((link) => (
+      <a 
+        className="dropdown-item" 
+        href = {link[1]}
+        key = {link[0]}
+      >
+        {link[0]}
+      </a>
+      // <DropdownItem key={link[0]}>
+        
+      // </DropdownItem>
+    ))
+
     return (
       <Navbar light color="light" expand="lg">
-      <Link className = "navbar-brand" to="/">Richard Liang</Link>
-
-      <NavbarToggler onClick = {() => this.setState({isOpen: !this.state.isOpen})}/>
-      <Collapse
-        isOpen = {this.state.isOpen}
-        navbar
-      >
-        <Nav className="ml-auto" navbar>
-          <NavItem>
-            <Link className = "nav-link" to = "/experience">experience</Link>
-          </NavItem>
-          
-          <NavItem>
-            <Link className = "nav-link" to = "/projects">projects</Link>
-          </NavItem>
-
-          <NavItem>
-            <Link className = "nav-link" to = {this.state.links.resume}>resume</Link>
-          </NavItem>
-
-          <NavItem>
-            <Link className = "nav-link" to = {this.state.links.github}>🐱</Link>
-          </NavItem>
-
-          <NavItem>
-            <Link className = "nav-link" to = {this.state.links.linkedin}>🔗</Link>
-          </NavItem>
-
-          <NavItem>
-            <NavLink href = {this.state.links.email}>📧</NavLink>
-          </NavItem>
-        </Nav>
-      </Collapse>
+      <div className="container">
+        <Link className = "navbar-brand" to="/">Richard Liang</Link>
+  
+        <NavbarToggler onClick = {() => this.setState({isOpen: !this.state.isOpen})}/>
+        <Collapse
+          isOpen = {this.state.isOpen}
+          navbar
+        >
+          <Nav className="ml-auto" navbar>
+            {/* EXPERIENCE */}
+            <NavItem>
+              <Link className = "nav-link" to = "/experience">experience</Link>
+            </NavItem>
+            
+            {/* PROJECTS */}
+            <NavItem>
+              <Link className = "nav-link" to = "/projects">projects</Link>
+            </NavItem>
+  
+            {/* RESUME */}
+            <NavItem>
+              <a className = "nav-link" href={this.state.resumeLink}>resume</a>
+            </NavItem>
+  
+            {/* 👨🏻‍💻 */}
+            <Dropdown className="NavItem" nav isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})}>
+              <DropdownToggle nav caret>
+                👨🏻‍💻
+              </DropdownToggle>
+              <DropdownMenu>
+                {moreOfMeLinks}
+              </DropdownMenu>
+            </Dropdown>
+          </Nav>
+        </Collapse>
+      </div>
     </Navbar>
     )
   }
 }
 
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
