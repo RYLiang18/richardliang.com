@@ -1,19 +1,38 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import {
-    Card
+    Card,
+    CardHeader
 } from 'reactstrap'
 
-class AboutMeCard extends Component {
-    
-    
-    render() {
-        return (
-            <Card>
-                {this.props.aboutMe}
-            </Card>
-        )
-    }
+/*
+PROPS:
+- aboutMe
+*/
+
+const AboutMeCard = ({aboutMe}) => {
+    var paragraphs = aboutMe.split("")
+    var paragraphs = aboutMe.split("\n").map((paragraph, index) => (
+        <p 
+            className="card-text"
+            key={index}
+            style={{
+                textIndent: '2em'
+            }}
+        >
+            {paragraph}
+        </p>
+    ))
+
+    return (
+        <Card>
+            <CardHeader>
+                <b>About Me</b>
+            </CardHeader>
+            {paragraphs}
+        </Card>
+    )
 }
+
 
 export default AboutMeCard

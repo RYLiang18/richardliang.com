@@ -9,7 +9,6 @@ import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
 } from 'reactstrap'
 
 import React, { Component } from 'react'
@@ -44,6 +43,10 @@ class Header extends Component {
   render() {
     
     var moreOfMeLinks = this.state.links.map((link) => (
+      /*
+        link[0] = link name
+        link[1] = link url
+      */
       <a 
         className="dropdown-item" 
         href = {link[1]}
@@ -51,9 +54,6 @@ class Header extends Component {
       >
         {link[0]}
       </a>
-      // <DropdownItem key={link[0]}>
-        
-      // </DropdownItem>
     ))
 
     return (

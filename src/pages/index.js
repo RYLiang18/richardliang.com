@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import PFPCard from "../components/LandingPage/pfp-card"
+import AboutMeCard from "../components/LandingPage/about-me-card"
 
 class IndexPage extends Component {
   constructor(props) {
@@ -13,9 +14,9 @@ class IndexPage extends Component {
     // default state values
     this.state = {
       links: {
-        "resume": "https://downloadmoreram.com/",
-        "linkedin": "https://downloadmoreram.com/",
-        "github": "https://downloadmoreram.com/",
+        "email" : "mailto:ryliang@umd.edu",
+        "resume" : "https://downloadmoreram.com/",
+        "links":[]
       },
       homepageJson: {
         "pfp": "https://i.imgur.com/5r7v03y.png",
@@ -43,7 +44,13 @@ class IndexPage extends Component {
     return (
       <Layout>
         <SEO title="Home" />
-        <PFPCard links={this.state.links}/>
+        <PFPCard 
+          links={this.state.links} 
+          homepageJson={this.state.homepageJson}
+        />
+        <AboutMeCard
+          aboutMe={this.state.homepageJson.about_me}
+        />
       </Layout>
     )
   }
