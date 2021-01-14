@@ -41,9 +41,8 @@ const Layout = ({ children }) => {
             <footer style={{
               marginTop: `2rem`
             }}>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              Jagalchi Fish Market
+              © {new Date().getFullYear()},
+              노량진 수산시장 🐠
             </footer>
           </Col>
           <Col lg="2"/>
