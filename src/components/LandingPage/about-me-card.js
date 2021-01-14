@@ -9,7 +9,7 @@ import {
 
 const AboutMeCard = ({aboutMe}) => {
     // var paragraphs = aboutMe.split("")
-    var paragraphs = aboutMe.split("\n").map((paragraph, index) => (
+    var paragraphs = aboutMe.split("\\n").map((paragraph, index) => (
         <p 
             className="card-text"
             key={index}
