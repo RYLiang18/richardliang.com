@@ -7,6 +7,7 @@ import ProjectCard from '../components/ProjectsPage/project-card'
 import{
     Button
 } from 'reactstrap'
+import { auto } from '@popperjs/core'
 
 class ProjectsPage extends Component {
     constructor(props){
@@ -61,6 +62,8 @@ class ProjectsPage extends Component {
     }
     
     render() {
+        var ret = null
+
         if (!this.state.readMore) {
             var ProjectCardComponents = this.state.projectsJson.map((projects) => (
                 <ProjectCard
@@ -75,8 +78,8 @@ class ProjectsPage extends Component {
                 />
             ))
 
-            return (
-                <Layout>
+            ret = (
+                <div>
                     <div>
                         <h1>Projects</h1>
                         <p>Amet minim ea minim aute fugiat cupidatat. Fugiat eiusmod do eiusmod sit cillum adipisicing exercitation eiusmod veniam do veniam consequat labore consectetur. Mollit tempor Lorem in dolor. Laboris duis laborum velit nulla qui anim sint ullamco ea. Eu aliquip laborum aliquip cupidatat anim consectetur cillum. Exercitation ipsum voluptate adipisicing laborum nulla tempor ad cillum laborum ullamco.</p>
@@ -96,7 +99,7 @@ class ProjectsPage extends Component {
                         description = "Aute et proident irure incididunt.\nUllamco culpa fugiat ipsum amet.\nCupidatat ipsum ipsum minim excepteur sit elit aute in sit."
                         callback = {this.clickedReadMore}
                     /> */}
-                </Layout>
+                </div>
             )
         } else {
             var descriptionParagraphs = this.state.readMoreProjectDescription.split("\\n").map((paragraph, index) => (
@@ -110,8 +113,8 @@ class ProjectsPage extends Component {
                 </p>
             ))
 
-            return (
-                <Layout>
+            ret = (
+                <div>
                     <a
                         onClick = {() => this.setState({
                             readMore: false
@@ -126,9 +129,37 @@ class ProjectsPage extends Component {
                         </h1>
                         {descriptionParagraphs}
                     </div>
-                </Layout>
+                </div>
             )
         }
+
+        return (
+            <Layout>
+                {ret}
+                <a target="_blank" href="https://github.com/RYLiang18">
+                    <img 
+                        src = "https://ghchart.rshah.org/409ba5/ryliang18"
+                        style = {{
+                            width: '100%',
+                            // display: 'block',
+                            // marginLeft: 'auto',
+                            // marginRight: 'auto'
+                        }}
+                    />
+                </a>
+                <p 
+                    style= {{
+                        textAlign:'center'
+                    }}
+                >
+                    @RYLiang18's contributions on
+                    <img
+                        src = "https://img.icons8.com/material-sharp/24/000000/github.png"
+                    />
+                </p>
+
+            </Layout>
+        )
     }
 }
 
