@@ -2,16 +2,13 @@ import React from 'react'
 
 import {
     Card,
-    CardHeader
+    CardHeader,
+    CardBody
 } from 'reactstrap'
 
-/*
-PROPS:
-- aboutMe
-*/
 
 const AboutMeCard = ({aboutMe}) => {
-    var paragraphs = aboutMe.split("")
+    // var paragraphs = aboutMe.split("")
     var paragraphs = aboutMe.split("\n").map((paragraph, index) => (
         <p 
             className="card-text"
@@ -29,7 +26,9 @@ const AboutMeCard = ({aboutMe}) => {
             <CardHeader>
                 <b>About Me</b>
             </CardHeader>
-            {paragraphs}
+            <CardBody>
+                {paragraphs}
+            </CardBody>
         </Card>
     )
 }
