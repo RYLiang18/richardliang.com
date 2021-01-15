@@ -8,7 +8,8 @@ import {
     CardBody,
     Row,
     Col,
-    Badge
+    Badge,
+    CardFooter
 } from 'reactstrap'
 
 const ProjectCard = ({name, img, tools, bullets, links, description, callback}) => {
@@ -61,6 +62,7 @@ const ProjectCard = ({name, img, tools, bullets, links, description, callback}) 
                                 links,
                                 description
                             )}
+                            href = "#"
                         >
                             read more!
                         </Button>
