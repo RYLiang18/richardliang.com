@@ -4,11 +4,6 @@ import React, { Component } from 'react'
 import Layout from "../components/layout"
 import ProjectCard from '../components/ProjectsPage/project-card'
 
-import{
-    Button
-} from 'reactstrap'
-import { auto } from '@popperjs/core'
-
 class ProjectsPage extends Component {
     constructor(props){
         super(props)
@@ -62,7 +57,7 @@ class ProjectsPage extends Component {
     }
     
     render() {
-        var ret = null
+        var retComponent = null
 
         // %%%% CASE 1: readMore is not on %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         if (!this.state.readMore) {
@@ -79,7 +74,7 @@ class ProjectsPage extends Component {
                 />
             ))
 
-            ret = (
+            retComponent = (
                 <div>
                     <div>
                         <h1>Projects</h1>
@@ -115,7 +110,7 @@ class ProjectsPage extends Component {
                 </p>
             ))
 
-            ret = (
+            retComponent = (
                 <div>
                     <a
                         onClick = {() => this.setState({
@@ -137,7 +132,7 @@ class ProjectsPage extends Component {
 
         return (
             <Layout>
-                {ret}
+                {retComponent}
                 <a target="_blank" href="https://github.com/RYLiang18">
                     <img 
                         src = "https://ghchart.rshah.org/409ba5/ryliang18"

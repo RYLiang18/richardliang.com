@@ -62,14 +62,13 @@ const ProjectCard = ({name, img, tools, bullets, links, description, callback}) 
                                 links,
                                 description
                             )}
-                            href = "#"
                         >
                             read more!
                         </Button>
 
                         <div
                             style = {{
-                                textAlign: right
+                                textAlign: 'right'
                             }}
                         >
                             {linksComponent}

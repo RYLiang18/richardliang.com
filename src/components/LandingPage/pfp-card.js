@@ -32,7 +32,7 @@ const PFPCard = ({links, homepageJson}) => {
     return (
         <Card>
             <Row noGutters style={{textAlign: 'center'}}>
-                <Col md="8" style={{margin: 'auto'}}>
+                <Col md="7" style={{margin: 'auto'}}>
                     <CardBody>
                         <CardText>
                             Hey there! I'm
@@ -55,10 +55,13 @@ const PFPCard = ({links, homepageJson}) => {
                         {moreOfMeLinks}
                     </CardBody>
                 </Col>
-                <Col md="4">
+                <Col md="5">
                     <CardImg
                         className="rounded-circle"
                         src = {homepageJson.pfp}
+                        style = {{
+                            padding: '10%'
+                        }}
                     />
                 </Col>
             </Row>
