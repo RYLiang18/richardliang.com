@@ -60,7 +60,6 @@ class ProjectsPage extends Component {
     render() {
         var retComponent = null
 
-        // %%%% CASE 1: readMore is not on %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         if (this.state.readMore == false) {
             var ProjectCardComponents = this.state.projectsJson.map((projects) => (
                 <ProjectCard
@@ -85,9 +84,7 @@ class ProjectsPage extends Component {
                     {ProjectCardComponents}
                 </div>
             )
-        } else {
-        // %%%% CASE 2: readMore is on %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            
+        } else {            
             retComponent = (
                 <ProjectDescription
                     name = {this.state.readMoreProjectName}

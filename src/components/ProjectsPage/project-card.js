@@ -51,9 +51,12 @@ const ProjectCard = ({name, img, tools, bullets, links, description, callback}) 
                     <CardBody>
                         {toolTags}
                         
-                        <ul>
-                            {bulletsComponent}
-                        </ul>
+                        <p>
+                            <h5>About this project:</h5>
+                            <ul>
+                                {bulletsComponent}
+                            </ul>
+                        </p>
 
                         <Button
                             onClick = {() => callback(

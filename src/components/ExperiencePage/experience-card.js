@@ -50,7 +50,7 @@ const ExperienceCard = ({name, img, position, dates, techStack, links, bullets, 
                         <h4>{position}</h4>
                         <h6>{dates[0]} - {dates[1]}</h6>
                         <p>
-                            tech stack: {techStackTags}
+                            {techStackTags}
                         </p>
                         <p>
                             My work:
