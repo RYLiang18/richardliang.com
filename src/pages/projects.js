@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 // COMPONENT IMPORTS
 import Layout from "../components/layout"
 import ProjectCard from '../components/ProjectsPage/project-card'
+import ProjectDescription from '../components/ProjectsPage/project-description'
 
 class ProjectsPage extends Component {
     constructor(props){
@@ -60,7 +61,7 @@ class ProjectsPage extends Component {
         var retComponent = null
 
         // %%%% CASE 1: readMore is not on %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        if (!this.state.readMore) {
+        if (this.state.readMore == false) {
             var ProjectCardComponents = this.state.projectsJson.map((projects) => (
                 <ProjectCard
                     name = {projects.name}
@@ -82,51 +83,21 @@ class ProjectsPage extends Component {
                     </div>
                     <br/>
                     {ProjectCardComponents}
-                    {/* <ProjectCard
-                        name="bruh"
-                        img = "https://i.imgur.com/plwmM4E.jpg"
-                        tools = {['bruh', 'bruh', 'bruh', 'bruh']}
-                        bullets = {['blah blah blah blah', 'blah blah blah blah', 'blah blah blah blah']}
-                        links = {[
-                            ['github', 'https://github.com/'],
-                            ['facebook', 'https://www.facebook.com/'],
-                            ['twitter', 'https://twitter.com/']
-                        ]}
-                        description = "Aute et proident irure incididunt.\nUllamco culpa fugiat ipsum amet.\nCupidatat ipsum ipsum minim excepteur sit elit aute in sit."
-                        callback = {this.clickedReadMore}
-                    /> */}
                 </div>
             )
         } else {
         // %%%% CASE 2: readMore is on %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            var descriptionParagraphs = this.state.readMoreProjectDescription.split("\\n").map((paragraph, index) => (
-                <p 
-                    key={index}
-                    style={{
-                        textIndent: '2em'
-                    }}
-                >
-                    {paragraph}
-                </p>
-            ))
-
+            
             retComponent = (
-                <div>
-                    <a
-                        onClick = {() => this.setState({
-                            readMore: false
-                        })}
-                        href = "#"
-                    >
-                        🔙 GO BACK!
-                    </a>
-                    <div>
-                        <h1>
-                            {this.state.readMoreProjectName}
-                        </h1>
-                        {descriptionParagraphs}
-                    </div>
-                </div>
+                <ProjectDescription
+                    name = {this.state.readMoreProjectName}
+                    tools = {this.state.readMoreProjectTools}
+                    links = {this.state.readMoreProjectLinks}
+                    description = {this.state.readMoreProjectDescription}
+                    goBack = {() => this.setState({
+                        readMore: false
+                    })}
+                />
             )
         }
 

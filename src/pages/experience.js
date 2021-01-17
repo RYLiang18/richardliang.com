@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 // COMPONENT IMPORTS
 import Layout from "../components/layout"
 import ExperienceCard from '../components/ExperiencePage/experience-card'
+import ExperienceDescription from '../components/ExperiencePage/experience-description'
 
 class ExperiencePage extends Component {
     constructor(props){
@@ -38,6 +39,16 @@ class ExperiencePage extends Component {
         }
     }
     
+    componentDidMount = () => {
+        fetch('https://raw.githubusercontent.com/RYLiang18/personal_site_json/main/experience.json')
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    experiencesJson: data.experiences
+                })
+            })
+    }
+
     clickedReadMore = (nameIn, positionIn, datesIn, techStackIn, descriptionIn, linksIn) => {
         this.setState({
             readMore: true,
@@ -51,31 +62,54 @@ class ExperiencePage extends Component {
     }
 
     render() {
+        var retComponent = null
+
+        if (this.state.readMore == false){
+            var ExperienceCardComponents = this.state.experiencesJson.map((experience) => (
+                <ExperienceCard
+                    name = {experience.name}
+                    img = {experience.image}
+                    position = {experience.position}
+                    dates = {experience.dates}
+                    techStack = {experience.tech_stack}
+                    links = {experience.links}
+                    bullets = {experience.bullets}
+                    readMore = {experience.read_more}
+                    callback = {this.clickedReadMore}
+
+                    key = {experience.name}
+                />
+            ))
+            
+            retComponent = (
+                <div>
+                    <div>
+                        <h1>Experience</h1>
+                        <p>Amet minim ea minim aute fugiat cupidatat. Fugiat eiusmod do eiusmod sit cillum adipisicing exercitation eiusmod veniam do veniam consequat labore consectetur. Mollit tempor Lorem in dolor. Laboris duis laborum velit nulla qui anim sint ullamco ea. Eu aliquip laborum aliquip cupidatat anim consectetur cillum. Exercitation ipsum voluptate adipisicing laborum nulla tempor ad cillum laborum ullamco.</p>
+                    </div>
+                    <br/>
+                    {ExperienceCardComponents}
+                </div>
+            )
+        } else {
+            retComponent = (
+                <ExperienceDescription
+                    name = {this.state.readMoreExpName}
+                    position = {this.state.readMoreExpPosName}
+                    dates = {this.state.readMoreExpDates}
+                    techStack = {this.state.readMoreExpTechStack}
+                    links = {this.state.readMoreExpLinks}
+                    description = {this.state.readMoreExpDescription}
+                    goBack = {() => this.setState({
+                        readMore: false
+                    })}
+                />
+            )
+        }
+        
         return (
             <Layout>
-                <div>
-                    <h1>Experience</h1>
-                    <p>Amet minim ea minim aute fugiat cupidatat. Fugiat eiusmod do eiusmod sit cillum adipisicing exercitation eiusmod veniam do veniam consequat labore consectetur. Mollit tempor Lorem in dolor. Laboris duis laborum velit nulla qui anim sint ullamco ea. Eu aliquip laborum aliquip cupidatat anim consectetur cillum. Exercitation ipsum voluptate adipisicing laborum nulla tempor ad cillum laborum ullamco.</p>
-                </div>
-                <br/>
-                <ExperienceCard
-                    name = "bruh"
-                    img = "https://i.imgur.com/3CAkQQ2.gif"
-                    position = "bruh engineer"
-                    dates = {['Apr. 2020', 'Apr. 2020']}
-                    techStack = {["bruh", "bruh", "bruh", "bruh", "bruh"]}
-                    links = {[
-                        ["website", "https://downloadmoreram.com/"],
-                        ["pee", "https://github.com/"]
-                    ]}
-                    bullets = {[
-                        "bruh bruh bruh",
-                        "bruh bruh bruh",
-                        "bruh bruh bruh"
-                    ]}
-                    readMore = "Ex ullamco aute enim tempor dolore. Duis dolore ut velit est laborum amet cillum culpa ex laborum. Id sit anim ex deserunt sunt."
-                    callback = {this.clickedReadMore}
-                />
+                {retComponent}
             </Layout>
         )
     }
