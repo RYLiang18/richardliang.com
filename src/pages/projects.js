@@ -103,7 +103,8 @@ class ProjectsPage extends Component {
                 {retComponent}
                 <a target="_blank" href="https://github.com/RYLiang18">
                     <img 
-                        src = "https://ghchart.rshah.org/409ba5/ryliang18"
+                        src = "https://ghchart.rshah.org/003061/ryliang18"
+                        alt = "RYLiang18's Blue Github Calendar"
                         style = {{
                             width: '100%',
                             // display: 'block',
