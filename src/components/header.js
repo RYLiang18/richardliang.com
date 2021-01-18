@@ -59,7 +59,7 @@ class Header extends Component {
     ))
 
     return (
-      <Navbar light color="light" expand="lg">
+      <Navbar dark color="dark" expand="lg" className="shadow-lg mb-4">
       <div className="container">
         <Link className = "navbar-brand" to="/">Richard Liang</Link>
   

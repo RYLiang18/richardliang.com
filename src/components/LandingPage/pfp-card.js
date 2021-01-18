@@ -27,7 +27,7 @@ const PFPCard = ({links, homepageJson}) => {
     ))
 
     return (
-        <Card>
+        <Card className="pfp-card shadow mb-3">
             <Row noGutters className='pfp-card-row'>
                 <Col md="7" className='pfp-card-left-col'>
                     <CardBody>

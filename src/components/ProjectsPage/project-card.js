@@ -35,7 +35,7 @@ const ProjectCard = ({name, img, tools, bullets, links, description, callback}) 
     ))
     
     return (
-        <Card>
+        <Card className="mb-3 shadow project-card">
             <h3 className="card-header">{name}</h3>
             <Row noGutters>
                 <Col md="4">

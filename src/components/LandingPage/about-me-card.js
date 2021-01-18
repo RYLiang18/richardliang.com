@@ -20,8 +20,8 @@ const AboutMeCard = ({aboutMe}) => {
     ))
 
     return (
-        <Card>
-            <CardHeader>
+        <Card className = "shadow about-me-card mb-3">
+            <CardHeader className="about-me-card-header">
                 <b>About Me</b>
             </CardHeader>
             <CardBody>

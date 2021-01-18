@@ -1,3 +1,12 @@
 .about-me-paragraph {
   text-indent: 2em;
 }
+
+.about-me-card {
+  border-radius: 20px;
+}
+
+.card-header:first-child {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
