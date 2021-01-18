@@ -6,16 +6,14 @@ import {
     CardBody
 } from 'reactstrap'
 
+import './about-me-card.css'
 
 const AboutMeCard = ({aboutMe}) => {
     // var paragraphs = aboutMe.split("")
     var paragraphs = aboutMe.split("\\n").map((paragraph, index) => (
         <p 
-            className="card-text"
+            className="card-text about-me-paragraph"
             key={index}
-            style={{
-                textIndent: '2em'
-            }}
         >
             {paragraph}
         </p>

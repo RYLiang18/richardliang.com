@@ -8,6 +8,8 @@ import {
     Badge
 } from 'reactstrap'
 
+import './experience-card.css'
+
 import React from 'react'
 
 const ExperienceCard = ({name, img, position, dates, techStack, links, bullets, readMore, callback}) => {
@@ -36,13 +38,8 @@ const ExperienceCard = ({name, img, position, dates, techStack, links, bullets, 
             <Row noGutters = {true}>
                 <Col md="4">
                     <CardImg
-                        className="img-fluid"
+                        className="img-fluid experience-card-img"
                         src = {img}
-                        style = {{
-                            height: '100%',
-                            objectFit: 'cover',
-                            padding: '10%'
-                        }}
                     />
                 </Col>
                 <Col md="8">
@@ -70,9 +67,7 @@ const ExperienceCard = ({name, img, position, dates, techStack, links, bullets, 
                         </Button>
 
                         <div
-                            style = {{
-                                textAlign: 'right'
-                            }}
+                            className = "link-buttons"
                         >
                             {linksComponent}
                         </div>

@@ -38,9 +38,7 @@ const Layout = ({ children }) => {
             <main>
               {children}
             </main>
-            <footer style={{
-              marginTop: `2rem`
-            }}>
+            <footer className="layout-footer">
               © {new Date().getFullYear()},
               노량진 수산시장 🐠
             </footer>

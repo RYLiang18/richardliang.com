@@ -12,6 +12,8 @@ import {
     CardFooter
 } from 'reactstrap'
 
+import './project-card.css'
+
 const ProjectCard = ({name, img, tools, bullets, links, description, callback}) => {
     var toolTags = tools.map((tool, index) => (
         <Badge key={index} >{tool}</Badge>
@@ -35,15 +37,11 @@ const ProjectCard = ({name, img, tools, bullets, links, description, callback}) 
     return (
         <Card>
             <h3 className="card-header">{name}</h3>
-            <Row noGutters={true}>
+            <Row noGutters>
                 <Col md="4">
                     <CardImg
-                        className="img-fluid"
+                        className="project-card-img"
                         src = {img}
-                        style = {{
-                            height: '100%',
-                            objectFit: 'cover'
-                        }}
                     />
                 </Col>
                     
@@ -69,11 +67,7 @@ const ProjectCard = ({name, img, tools, bullets, links, description, callback}) 
                             read more!
                         </Button>
 
-                        <div
-                            style = {{
-                                textAlign: 'right'
-                            }}
-                        >
+                        <div className="links-buttons">
                             {linksComponent}
                         </div>
                     </CardBody>

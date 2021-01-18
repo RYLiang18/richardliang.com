@@ -20,6 +20,7 @@ class Header extends Component {
       isOpen: false,
       dropdownOpen: false,
       resumeLink: "",
+      emailLink: "",
       links: []
     }
   }
@@ -30,7 +31,8 @@ class Header extends Component {
       .then(data => {
         this.setState({
           resumeLink: data.resume,
-          links: data.links
+          links: data.links,
+          emailLink: data.email
         })
       })
       .catch(err => {
@@ -80,6 +82,11 @@ class Header extends Component {
             {/* RESUME */}
             <NavItem>
               <a className = "nav-link" href={this.state.resumeLink}>resume</a>
+            </NavItem>
+
+            {/* 📧 */}
+            <NavItem>
+              <a className = "nav-link" href={this.state.emailLink}>📧</a>
             </NavItem>
   
             {/* 👨🏻‍💻 */}

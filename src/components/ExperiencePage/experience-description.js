@@ -4,13 +4,13 @@ import {
     Badge
 } from 'reactstrap'
 
+import './experience-description.css'
+
 const ExperienceDescription = ({name, position, dates, techStack, links, description, goBack}) => {
     var descriptionParagraphs = description.split("\\n").map((paragraph, index) => (
-        <p 
+        <p
+            className = "description-paragraph" 
             key={index}
-            style={{
-                textIndent: '2em'
-            }}
         >
             {paragraph}
         </p>
@@ -46,19 +46,12 @@ const ExperienceDescription = ({name, position, dates, techStack, links, descrip
 
             <h3>{position}, {dates[0]} - {dates[1]}</h3>
 
-            <div>
-                {/* <h4 style={{display: 'inline'}}>Tech Stack: </h4> */}
-                <div style={{display: 'inline'}}>{techStackBadges}</div>
-            </div>
+            <div>{techStackBadges}</div>
 
             <hr/>
             {descriptionParagraphs}
 
-            <div
-                style = {{
-                    textAlign: 'right'
-                }}
-            >
+            <div className='links-buttons'>
                 {linksComponent}
             </div>
             <hr/>

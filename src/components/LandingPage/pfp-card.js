@@ -9,11 +9,8 @@ import {
 
 import React from 'react'
 
-/*
-PROPS:
-- links
-- homepageJson
-*/
+import './pfp-card.css'
+
 const PFPCard = ({links, homepageJson}) => {
     var moreOfMeLinks = links.links.map((link) => (
         /*
@@ -31,8 +28,8 @@ const PFPCard = ({links, homepageJson}) => {
 
     return (
         <Card>
-            <Row noGutters style={{textAlign: 'center'}}>
-                <Col md="7" style={{margin: 'auto'}}>
+            <Row noGutters className='pfp-card-row'>
+                <Col md="7" className='pfp-card-left-col'>
                     <CardBody>
                         <CardText>
                             Hey there! I'm
@@ -57,11 +54,8 @@ const PFPCard = ({links, homepageJson}) => {
                 </Col>
                 <Col md="5">
                     <CardImg
-                        className="rounded-circle"
+                        className="rounded-circle pfp-img"
                         src = {homepageJson.pfp}
-                        style = {{
-                            padding: '10%'
-                        }}
                     />
                 </Col>
             </Row>

@@ -5,6 +5,8 @@ import Layout from "../components/layout"
 import ProjectCard from '../components/ProjectsPage/project-card'
 import ProjectDescription from '../components/ProjectsPage/project-description'
 
+import './projects.css'
+
 class ProjectsPage extends Component {
     constructor(props){
         super(props)
@@ -105,19 +107,10 @@ class ProjectsPage extends Component {
                     <img 
                         src = "https://ghchart.rshah.org/003061/ryliang18"
                         alt = "RYLiang18's Blue Github Calendar"
-                        style = {{
-                            width: '100%',
-                            // display: 'block',
-                            // marginLeft: 'auto',
-                            // marginRight: 'auto'
-                        }}
+                        className = "ryliang18-github-calendar"
                     />
                 </a>
-                <p 
-                    style= {{
-                        textAlign:'center'
-                    }}
-                >
+                <p className = "github-calendar-label">
                     @RYLiang18's contributions on
                     <img
                         src = "https://img.icons8.com/material-sharp/24/000000/github.png"
