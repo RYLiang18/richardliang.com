@@ -15,7 +15,7 @@ import styles from './project-card.module.css'
 
 const ProjectCard = ({name, img, tools, bullets, links, description, callback}) => {
     var toolTags = tools.map((tool, index) => (
-        <Badge className={styles.toolTag} key={index} >{tool}</Badge>
+        <Badge className={`py-2 ${styles.toolTag}`} key={index} >{tool}</Badge>
     ))
 
     var bulletsComponent = bullets.map((bullet, index) => (

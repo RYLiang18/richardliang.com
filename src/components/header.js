@@ -11,6 +11,13 @@ import {
   DropdownMenu,
 } from 'reactstrap'
 
+import {
+  MdMore,
+  MdMail
+} from 'react-icons/md'
+
+import styles from './header.module.css'
+
 import React, { Component } from 'react'
 
 class Header extends Component {
@@ -45,13 +52,10 @@ class Header extends Component {
   render() {
     
     var moreOfMeLinks = this.state.links.map((link) => (
-      /*
-        link[0] = link name
-        link[1] = link url
-      */
       <a 
         className="dropdown-item" 
         href = {link[1]}
+        target = "_blank"
         key = {link[0]}
       >
         {link[0]}
@@ -61,38 +65,48 @@ class Header extends Component {
     return (
       <Navbar dark color="dark" expand="lg" className="shadow-lg mb-4">
       <div className="container">
-        <Link className = "navbar-brand" to="/">Richard Liang</Link>
+        <Link className={`navbar-brand ${styles.richardBrand} py-2`} to="/">
+          <h2>Richard Liang</h2>
+        </Link>
   
         <NavbarToggler onClick = {() => this.setState({isOpen: !this.state.isOpen})}/>
         <Collapse
           isOpen = {this.state.isOpen}
           navbar
         >
-          <Nav className="ml-auto" navbar>
+          <Nav className={`ml-auto ${styles.richardNavbar}`} navbar>
             {/* EXPERIENCE */}
             <NavItem>
-              <Link className = "nav-link" to = "/experience">experience</Link>
+              <Link className = "nav-link mx-2" to = "/experience">
+                  experience
+              </Link>
             </NavItem>
             
             {/* PROJECTS */}
             <NavItem>
-              <Link className = "nav-link" to = "/projects">projects</Link>
+              <Link className = "nav-link mx-2" to = "/projects">
+                projects
+              </Link>
             </NavItem>
   
             {/* RESUME */}
             <NavItem>
-              <a className = "nav-link" href={this.state.resumeLink}>resume</a>
+              <a className = "nav-link mx-2" target="_blank" href={this.state.resumeLink}>
+                resume
+              </a>
             </NavItem>
 
             {/* 📧 */}
             <NavItem>
-              <a className = "nav-link" href={this.state.emailLink}>📧</a>
+              <a className = "nav-link mx-2" href={this.state.emailLink}>
+                <MdMail/>
+              </a>
             </NavItem>
   
             {/* 👨🏻‍💻 */}
-            <Dropdown className="NavItem" nav isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})}>
+            <Dropdown className="NavItem mx-2" nav isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})}>
               <DropdownToggle nav caret>
-                👨🏻‍💻
+                <MdMore/>
               </DropdownToggle>
               <DropdownMenu>
                 {moreOfMeLinks}

@@ -14,7 +14,7 @@ import React from 'react'
 
 const ExperienceCard = ({name, img, position, dates, techStack, links, bullets, readMore, callback}) => {
     var techStackTags = techStack.map((tool, index) => (
-        <Badge className={styles.toolTag} key={index}>{tool}</Badge>
+        <Badge className={`py-2 ${styles.toolTag}`} key={index}>{tool}</Badge>
     ))
 
     var bulletsComponent = bullets.map((bullet, index) => (
