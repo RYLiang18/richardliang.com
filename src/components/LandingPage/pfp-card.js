@@ -9,14 +9,10 @@ import {
 
 import React from 'react'
 
-import './pfp-card.css'
+import styles from './pfp-card.module.css'
 
 const PFPCard = ({links, homepageJson}) => {
     var moreOfMeLinks = links.links.map((link) => (
-        /*
-            link[0] = link name
-            link[1] = link url
-        */
         <a
             className = "btn btn-sm btn-outline-dark"
             href = {link[1]}
@@ -27,9 +23,9 @@ const PFPCard = ({links, homepageJson}) => {
     ))
 
     return (
-        <Card className="pfp-card shadow mb-3">
-            <Row noGutters className='pfp-card-row'>
-                <Col md="7" className='pfp-card-left-col'>
+        <Card className={`${styles.pfpCard} shadow mb-3`}>
+            <Row noGutters className={styles.pfpCardRow}>
+                <Col md="7" className={styles.pfpCardLeftCol}>
                     <CardBody>
                         <CardText>
                             Hey there! I'm
@@ -54,7 +50,7 @@ const PFPCard = ({links, homepageJson}) => {
                 </Col>
                 <Col md="5">
                     <CardImg
-                        className="rounded-circle pfp-img"
+                        className="rounded-circle p-5"
                         src = {homepageJson.pfp}
                     />
                 </Col>

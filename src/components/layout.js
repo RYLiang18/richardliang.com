@@ -9,7 +9,8 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+
+import styles from "./layout.module.css"
 
 import {
   Container,
@@ -38,7 +39,7 @@ const Layout = ({ children }) => {
             <main>
               {children}
             </main>
-            <footer className="layout-footer">
+            <footer className={styles.layoutFooter}>
               © {new Date().getFullYear()},
               노량진 수산시장 🐠
             </footer>

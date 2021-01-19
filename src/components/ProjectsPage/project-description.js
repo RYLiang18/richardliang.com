@@ -4,13 +4,13 @@ import {
     Badge
 } from 'reactstrap'
 
-import './project-description.css'
+import styles from './project-description.module.css'
 
 const ProjectDescription = ({name, tools, links, description, goBack}) => {
     var descriptionParagraphs = description.split("\\n").map((paragraph, index) => (
         <p 
             key={index}
-            className = "description-paragraph"
+            className = {styles.descriptionParagraph}
         >
             {paragraph}
         </p>
@@ -45,7 +45,7 @@ const ProjectDescription = ({name, tools, links, description, goBack}) => {
             {toolBadges}
             <hr/>
             {descriptionParagraphs}
-            <div className = "links-buttons">
+            <div className = {styles.linkButtons}>
                 {linksComponent}
             </div>
             <hr/>

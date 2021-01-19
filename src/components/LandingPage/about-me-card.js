@@ -6,13 +6,13 @@ import {
     CardBody
 } from 'reactstrap'
 
-import './about-me-card.css'
+import styles from './about-me-card.module.css'
 
 const AboutMeCard = ({aboutMe}) => {
     // var paragraphs = aboutMe.split("")
     var paragraphs = aboutMe.split("\\n").map((paragraph, index) => (
         <p 
-            className="card-text about-me-paragraph"
+            className={`card-text ${styles.aboutMeParagraph}`}
             key={index}
         >
             {paragraph}
@@ -20,8 +20,8 @@ const AboutMeCard = ({aboutMe}) => {
     ))
 
     return (
-        <Card className = "shadow about-me-card mb-3">
-            <CardHeader className="about-me-card-header">
+        <Card className = {`shadow ${styles.aboutMeCard} mb-3`}>
+            <CardHeader>
                 <b>About Me</b>
             </CardHeader>
             <CardBody>

@@ -9,14 +9,13 @@ import {
     Row,
     Col,
     Badge,
-    CardFooter
 } from 'reactstrap'
 
-import './project-card.css'
+import styles from './project-card.module.css'
 
 const ProjectCard = ({name, img, tools, bullets, links, description, callback}) => {
     var toolTags = tools.map((tool, index) => (
-        <Badge key={index} >{tool}</Badge>
+        <Badge className={styles.toolTag} key={index} >{tool}</Badge>
     ))
 
     var bulletsComponent = bullets.map((bullet, index) => (
@@ -35,12 +34,12 @@ const ProjectCard = ({name, img, tools, bullets, links, description, callback}) 
     ))
     
     return (
-        <Card className="mb-3 shadow project-card">
+        <Card className={`mb-3 shadow ${styles.projectCard}`}>
             <h3 className="card-header">{name}</h3>
             <Row noGutters>
                 <Col md="4">
                     <CardImg
-                        className="project-card-img"
+                        className={styles.projectCardImg}
                         src = {img}
                     />
                 </Col>
@@ -67,7 +66,7 @@ const ProjectCard = ({name, img, tools, bullets, links, description, callback}) 
                             read more!
                         </Button>
 
-                        <div className="links-buttons">
+                        <div className={styles.linkButtons}>
                             {linksComponent}
                         </div>
                     </CardBody>

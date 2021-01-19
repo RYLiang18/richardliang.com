@@ -1,0 +1,8 @@
+.aboutMeParagraph {
+  text-indent: 2em;
+}
+
+.aboutMeCard {
+  border-radius: 20px;
+  overflow: hidden;
+}

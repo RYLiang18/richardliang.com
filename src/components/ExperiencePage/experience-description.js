@@ -4,12 +4,12 @@ import {
     Badge
 } from 'reactstrap'
 
-import './experience-description.css'
+import styles from './experience-description.module.css'
 
 const ExperienceDescription = ({name, position, dates, techStack, links, description, goBack}) => {
     var descriptionParagraphs = description.split("\\n").map((paragraph, index) => (
         <p
-            className = "description-paragraph" 
+            className = {styles.descriptionParagraph} 
             key={index}
         >
             {paragraph}
@@ -51,7 +51,7 @@ const ExperienceDescription = ({name, position, dates, techStack, links, descrip
             <hr/>
             {descriptionParagraphs}
 
-            <div className='links-buttons'>
+            <div className={styles.linkButtons}>
                 {linksComponent}
             </div>
             <hr/>

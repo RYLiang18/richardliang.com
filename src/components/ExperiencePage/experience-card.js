@@ -8,13 +8,13 @@ import {
     Badge
 } from 'reactstrap'
 
-import './experience-card.css'
+import styles from './experience-card.module.css'
 
 import React from 'react'
 
 const ExperienceCard = ({name, img, position, dates, techStack, links, bullets, readMore, callback}) => {
     var techStackTags = techStack.map((tool, index) => (
-        <Badge key = {index}>{tool}</Badge>
+        <Badge className={styles.toolTag} key={index}>{tool}</Badge>
     ))
 
     var bulletsComponent = bullets.map((bullet, index) => (
@@ -33,12 +33,12 @@ const ExperienceCard = ({name, img, position, dates, techStack, links, bullets, 
     ))
     
     return (
-        <Card>
+        <Card className={`${styles.experienceCard} mb-3 shadow`}>
             <h3 className = 'card-header'>{name}</h3>
             <Row noGutters = {true}>
                 <Col md="4">
                     <CardImg
-                        className="img-fluid experience-card-img"
+                        className={`img-fluid ${styles.experienceCardImg}`}
                         src = {img}
                     />
                 </Col>
@@ -66,9 +66,7 @@ const ExperienceCard = ({name, img, position, dates, techStack, links, bullets, 
                             read more!
                         </Button>
 
-                        <div
-                            className = "link-buttons"
-                        >
+                        <div className = {styles.linkButtons}>
                             {linksComponent}
                         </div>
                     </CardBody>

@@ -1,0 +1,11 @@
+.pfpCardRow {
+  text-align: center;
+}
+
+.pfpCardLeftCol {
+  margin: auto;
+}
+
+.pfpCard {
+  border-radius: 20px;
+}

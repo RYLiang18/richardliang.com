@@ -1,0 +1,23 @@
+.projectCardImg {
+  height: 100%;
+  object-fit: cover;
+
+  border-radius: 0px;
+  border-bottom-left-radius: 20px;
+}
+
+.linkButtons {
+  text-align: right;
+}
+
+.projectCard {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.toolTag {
+  margin-right: 5px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 100%;
+}
