@@ -64,7 +64,7 @@ class ExperiencePage extends Component {
     render() {
         var retComponent = null
 
-        if (this.state.readMore == false){
+        if (this.state.readMore === false){
             var ExperienceCardComponents = this.state.experiencesJson.map((experience) => (
                 <ExperienceCard
                     name = {experience.name}
@@ -83,7 +83,7 @@ class ExperiencePage extends Component {
             
             retComponent = (
                 <div>
-                    <h1>Experiences</h1>
+                    <h1>Experiences 💼</h1>
                     <br/>
                     {ExperienceCardComponents}
                 </div>

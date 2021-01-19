@@ -1,4 +1,3 @@
-import { right } from '@popperjs/core'
 import React from 'react'
 
 import {
@@ -15,7 +14,7 @@ import styles from './project-card.module.css'
 
 const ProjectCard = ({name, img, tools, bullets, links, description, callback}) => {
     var toolTags = tools.map((tool, index) => (
-        <Badge className={`py-2 ${styles.toolTag}`} key={index} >{tool}</Badge>
+        <Badge pill className={`py-2 ${styles.toolTag}`} key={index} >{tool}</Badge>
     ))
 
     var bulletsComponent = bullets.map((bullet, index) => (
@@ -24,8 +23,9 @@ const ProjectCard = ({name, img, tools, bullets, links, description, callback}) 
 
     var linksComponent = links.map((linkTup, index) => (
         <a
-            className = "btn btn-info"
+            className = {`btn btn-info ${styles.singleLinkButton}`}
             target = "_blank"
+            rel="noreferrer"
             href = {linkTup[1]}
             key = {index}
         >
@@ -34,7 +34,7 @@ const ProjectCard = ({name, img, tools, bullets, links, description, callback}) 
     ))
     
     return (
-        <Card className={`mb-3 shadow ${styles.projectCard}`}>
+        <Card className={`mb-4 shadow ${styles.projectCard}`}>
             <h3 className="card-header">{name}</h3>
             <Row noGutters>
                 <Col md="4">
@@ -44,18 +44,18 @@ const ProjectCard = ({name, img, tools, bullets, links, description, callback}) 
                     />
                 </Col>
                     
-                <Col md="8">
+                <Col md="8" className="px-3">
                     <CardBody>
                         {toolTags}
                         
-                        <p>
-                            <h5>About this project:</h5>
-                            <ul>
-                                {bulletsComponent}
-                            </ul>
-                        </p>
+                        <h5>About this project:</h5>
+                        <ul>
+                            {bulletsComponent}
+                        </ul>
 
                         <Button
+                            // color="dark"
+                            className= {`mb-5 ${styles.readMoreButton}`}
                             onClick = {() => callback(
                                 name,
                                 tools,

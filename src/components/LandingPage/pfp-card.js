@@ -14,7 +14,7 @@ import styles from './pfp-card.module.css'
 const PFPCard = ({links, homepageJson}) => {
     var moreOfMeLinks = links.links.map((link) => (
         <a
-            className = "btn btn-sm btn-outline-dark mx-1"
+            className = {`btn btn-info mx-1 ${styles.buttonThingy}`}
             href = {link[1]}
             key = {link[0]}
         >
@@ -39,7 +39,7 @@ const PFPCard = ({links, homepageJson}) => {
                         </CardText>
                         <br/>
                         <a
-                            className = "btn btn-sm btn-outline-dark mx-1"
+                            className = {`btn btn-info mx-1 my-2 ${styles.buttonThingy}`}
                             href = {links.resume}
                         >
                             resume 📃

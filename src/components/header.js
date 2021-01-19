@@ -1,5 +1,4 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import {
   Nav,
   Navbar,
@@ -57,13 +56,18 @@ class Header extends Component {
         href = {link[1]}
         target = "_blank"
         key = {link[0]}
+        rel="noreferrer"
       >
         {link[0]}
       </a>
     ))
 
     return (
-      <Navbar dark color="dark" expand="lg" className="shadow-lg mb-4">
+      <Navbar 
+        dark
+        expand="lg" 
+        className={`shadow-lg mb-4 ${styles.navbarCustomColor}`}
+      >
       <div className="container">
         <Link className={`navbar-brand ${styles.richardBrand} py-2`} to="/">
           <h2>Richard Liang</h2>
@@ -91,7 +95,7 @@ class Header extends Component {
   
             {/* RESUME */}
             <NavItem>
-              <a className = "nav-link mx-2" target="_blank" href={this.state.resumeLink}>
+              <a className = "nav-link mx-2" target="_blank" href={this.state.resumeLink} rel="noreferrer">
                 resume
               </a>
             </NavItem>

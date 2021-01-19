@@ -62,7 +62,7 @@ class ProjectsPage extends Component {
     render() {
         var retComponent = null
 
-        if (this.state.readMore == false) {
+        if (this.state.readMore === false) {
             var ProjectCardComponents = this.state.projectsJson.map((projects) => (
                 <ProjectCard
                     name = {projects.name}
@@ -78,7 +78,7 @@ class ProjectsPage extends Component {
 
             retComponent = (
                 <div>
-                    <h1>Projects</h1>
+                    <h1>Projects 👨🏻‍💻</h1>
                     <br/>
                     {ProjectCardComponents}
                 </div>
@@ -100,17 +100,18 @@ class ProjectsPage extends Component {
         return (
             <Layout>
                 {retComponent}
-                <a target="_blank" href="https://github.com/RYLiang18">
+                <a target="_blank" href="https://github.com/RYLiang18" rel="noreferrer">
                     <img 
-                        src = "https://ghchart.rshah.org/003061/ryliang18"
+                        src = "https://ghchart.rshah.org/00AD9F/ryliang18"
                         alt = "RYLiang18's Blue Github Calendar"
-                        className = "ryliang18-github-calendar"
+                        className = "ryliang18-github-calendar mt-4"
                     />
                 </a>
                 <p className = "github-calendar-label">
                     @RYLiang18's contributions on
                     <img
                         src = "https://img.icons8.com/material-sharp/24/000000/github.png"
+                        alt = "github logo"
                     />
                 </p>
 

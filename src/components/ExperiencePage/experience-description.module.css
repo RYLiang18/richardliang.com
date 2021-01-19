@@ -5,3 +5,15 @@
 .linkButtons {
   text-align: right;
 }
+
+.singleLinkButton {
+  margin-left: 5px;
+  margin-bottom: 10px;
+  background-color: #00ad9f;
+}
+
+.toolTag {
+  font-weight: 500;
+  font-size: 100%;
+  background-color: #00c7b7;
+}

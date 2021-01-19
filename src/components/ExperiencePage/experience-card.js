@@ -14,7 +14,7 @@ import React from 'react'
 
 const ExperienceCard = ({name, img, position, dates, techStack, links, bullets, readMore, callback}) => {
     var techStackTags = techStack.map((tool, index) => (
-        <Badge className={`py-2 ${styles.toolTag}`} key={index}>{tool}</Badge>
+        <Badge pill className={`py-2 ${styles.toolTag}`} key={index}>{tool}</Badge>
     ))
 
     var bulletsComponent = bullets.map((bullet, index) => (
@@ -23,10 +23,11 @@ const ExperienceCard = ({name, img, position, dates, techStack, links, bullets, 
 
     var linksComponent = links.map((linkTup, index) => (
         <a
-            className = "btn btn-info"
+            className = {`btn btn-info ${styles.singleLinkButton}`}
             target = "_blank"
             href = {linkTup[1]}
             key = {index}
+            rel="noreferrer"
         >
             {linkTup[0]}
         </a>
@@ -49,11 +50,10 @@ const ExperienceCard = ({name, img, position, dates, techStack, links, bullets, 
                         <p>
                             {techStackTags}
                         </p>
-                        <p>
-                            My work:
-                            <ul>{bulletsComponent}</ul>
-                        </p>
+                        <b>My Work: </b>
+                        <ul>{bulletsComponent}</ul>
                         <Button
+                            className = {`mb-5 ${styles.readMoreButton}`}
                             onClick = {() => callback(
                                 name,
                                 position,

@@ -1,3 +1,9 @@
 .layoutFooter {
   margin-top: 2rem;
 }
+
+.customLayoutColor {
+  background-color: #fafbfb;
+  margin: 0;
+  height: 100%;
+}

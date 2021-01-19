@@ -8,6 +8,12 @@
   text-align: right;
 }
 
+.singleLinkButton {
+  margin-left: 5px;
+  margin-bottom: 10px;
+  background-color: #00ad9f;
+}
+
 .experienceCard {
   border-radius: 20px;
   overflow: hidden;
@@ -17,4 +23,9 @@
   margin-right: 5px;
   font-weight: 500;
   font-size: 100%;
+  background-color: #00c7b7;
+}
+
+.readMoreButton {
+  background-color: #7d8589;
 }

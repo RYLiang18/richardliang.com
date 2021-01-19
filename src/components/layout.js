@@ -6,7 +6,6 @@
  */
 import React from 'react'
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 
@@ -19,18 +18,9 @@ import {
 } from 'reactstrap'
 
 const Layout = ({ children }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
 
   return (
-    <>
+    <div className={styles.customLayoutColor}>
       <Header/>
       <Container fluid = {true}>
         <Row className="pt-md-4">
@@ -47,7 +37,7 @@ const Layout = ({ children }) => {
           <Col lg="2"/>
         </Row>
       </Container>
-    </>
+    </div>
   )
 }
 
