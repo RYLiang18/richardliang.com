@@ -50,12 +50,12 @@ class Header extends Component {
 
   render() {
     
-    var moreOfMeLinks = this.state.links.map((link) => (
+    var moreOfMeLinks = this.state.links.map((link, index) => (
       <a 
         className="dropdown-item" 
         href = {link[1]}
         target = "_blank"
-        key = {link[0]}
+        key = {index}
         rel="noreferrer"
       >
         {link[0]}

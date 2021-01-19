@@ -63,7 +63,7 @@ class ProjectsPage extends Component {
         var retComponent = null
 
         if (this.state.readMore === false) {
-            var ProjectCardComponents = this.state.projectsJson.map((projects) => (
+            var ProjectCardComponents = this.state.projectsJson.map((projects, index) => (
                 <ProjectCard
                     name = {projects.name}
                     img = {projects.image}
@@ -72,7 +72,7 @@ class ProjectsPage extends Component {
                     links = {projects.links}
                     description = {projects.read_more}
                     callback = {this.clickedReadMore}
-                    key = {projects.name}
+                    key = {index}
                 />
             ))
 

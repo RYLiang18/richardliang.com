@@ -65,7 +65,7 @@ class ExperiencePage extends Component {
         var retComponent = null
 
         if (this.state.readMore === false){
-            var ExperienceCardComponents = this.state.experiencesJson.map((experience) => (
+            var ExperienceCardComponents = this.state.experiencesJson.map((experience, index) => (
                 <ExperienceCard
                     name = {experience.name}
                     img = {experience.image}
@@ -77,7 +77,7 @@ class ExperiencePage extends Component {
                     readMore = {experience.read_more}
                     callback = {this.clickedReadMore}
 
-                    key = {experience.name}
+                    key = {index}
                 />
             ))
             

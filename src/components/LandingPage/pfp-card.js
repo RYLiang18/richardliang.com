@@ -12,11 +12,11 @@ import React from 'react'
 import styles from './pfp-card.module.css'
 
 const PFPCard = ({links, homepageJson}) => {
-    var moreOfMeLinks = links.links.map((link) => (
+    var moreOfMeLinks = links.links.map((link, index) => (
         <a
             className = {`btn btn-info mx-1 ${styles.buttonThingy}`}
             href = {link[1]}
-            key = {link[0]}
+            key = {index}
         >
             {link[0]}
         </a>
