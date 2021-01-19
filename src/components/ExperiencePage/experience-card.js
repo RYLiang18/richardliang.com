@@ -34,14 +34,16 @@ const ExperienceCard = ({name, img, position, dates, techStack, links, bullets, 
     ))
     
     return (
-        <Card className={`${styles.experienceCard} mb-3 shadow`}>
+        <Card className={`${styles.experienceCard} mb-4 shadow`}>
             <h3 className = 'card-header'>{name}</h3>
             <Row noGutters = {true}>
                 <Col md="4">
-                    <CardImg
-                        className={`img-fluid ${styles.experienceCardImg}`}
-                        src = {img}
-                    />
+                    <div className={`${styles.experienceCardImgContainer}`}>
+                        <CardImg
+                            className={`img-fluid ${styles.experienceCardImg}`}
+                            src = {img}
+                        />
+                    </div>
                 </Col>
                 <Col md="8">
                     <CardBody>

@@ -20,21 +20,20 @@ import {
 const Layout = ({ children }) => {
 
   return (
-    <div className={styles.customLayoutColor}>
+    <div className={styles.customLayout}>
       <Header/>
       <Container fluid = {true}>
         <Row className="pt-md-4">
-          <Col lg="2"/>
-          <Col lg="8">
+          <Col lg="3"/>
+          <Col lg="6">
             <main>
               {children}
             </main>
             <footer className={styles.layoutFooter}>
-              © {new Date().getFullYear()},
               노량진 수산시장 🐠
             </footer>
           </Col>
-          <Col lg="2"/>
+          <Col lg="3"/>
         </Row>
       </Container>
     </div>
