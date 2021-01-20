@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import SEO from "../components/seo"
+
 // COMPONENT IMPORTS
 import Layout from "../components/layout"
 import ExperienceCard from '../components/ExperiencePage/experience-card'
@@ -25,8 +27,8 @@ class ExperiencePage extends Component {
                     'dates': ['Apr. 2020', 'Apr. 2020'],
                     'tech_stack': ['loading', 'loading', 'loading'],
                     'links': [
-                        'loading', 'https://downloadmoreram.com/',
-                        'loading', 'https://downloadmoreram.com/'
+                        ['🐌🐌🐌', 'https://downloadmoreram.com/'],
+                        ['🐌🐌🐌', 'https://downloadmoreram.com/']
                     ],
                     'bullets': [
                         'loading...........',
@@ -106,6 +108,10 @@ class ExperiencePage extends Component {
         
         return (
             <Layout>
+                <SEO 
+                    title="Richard Liang's Professional Experiences"
+                    description="Details of Richard's Jobs and Internships"
+                />
                 {retComponent}
             </Layout>
         )

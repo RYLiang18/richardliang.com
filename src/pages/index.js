@@ -19,7 +19,7 @@ class IndexPage extends Component {
         "links":[]
       },
       homepageJson: {
-        "pfp": "https://i.imgur.com/5r7v03y.png",
+        "pfp": "https://i.ibb.co/jRsPCc8/square-loading.gif",
         "intro": "LOADING...",
         "about_me": "LOADING........"
       }
@@ -43,7 +43,10 @@ class IndexPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO title="Home" />
+        <SEO 
+          title="Home"
+          description="Richard Liang's Landing Page"
+        />
         <PFPCard 
           links={this.state.links} 
           homepageJson={this.state.homepageJson}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import SEO from "../components/seo"
 
 // COMPONENT IMPORTS
 import Layout from "../components/layout"
@@ -23,8 +24,8 @@ class ProjectsPage extends Component {
                     'image': 'https://i.imgur.com/3CAkQQ2.gif',
                     'tools': ['loading', 'loading', 'loading'],
                     'links': [
-                        'loading', 'https://downloadmoreram.com/',
-                        'loading', 'https://downloadmoreram.com/'
+                        ['🐌🐌🐌', 'https://downloadmoreram.com/'],
+                        ['🐌🐌🐌', 'https://downloadmoreram.com/']
                     ],
                     'bullets': [
                         'loading...........',
@@ -99,6 +100,10 @@ class ProjectsPage extends Component {
 
         return (
             <Layout>
+                <SEO 
+                    title="Richard Projects"
+                    description="Details of Richard's Side Projects"
+                />
                 {retComponent}
                 <a target="_blank" href="https://github.com/RYLiang18" rel="noreferrer">
                     <img 

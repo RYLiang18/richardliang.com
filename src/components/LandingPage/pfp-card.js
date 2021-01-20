@@ -42,8 +42,9 @@ const PFPCard = ({links, homepageJson}) => {
                         <a
                             className = {`btn btn-info mx-1 my-2 ${styles.buttonThingy}`}
                             href = {links.resume}
+                            target = "_blank"
                         >
-                            resume 📃
+                            Resume 📃
                         </a>
                         {moreOfMeLinks}
                     </CardBody>
