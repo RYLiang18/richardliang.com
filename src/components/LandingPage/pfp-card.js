@@ -16,6 +16,7 @@ const PFPCard = ({links, homepageJson}) => {
         <a
             className = {`btn btn-info mx-1 my-2 ${styles.buttonThingy}`}
             href = {link[1]}
+            target="_blank"
             key = {index}
         >
             {link[0]}

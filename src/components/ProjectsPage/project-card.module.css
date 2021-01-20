@@ -3,7 +3,7 @@
   object-fit: cover;
 
   border-radius: 0px;
-  border-bottom-left-radius: 20px;
+  /* border-bottom-left-radius: 20px; */
 }
 
 .linkButtons {
