@@ -22,7 +22,7 @@ const AboutMeCard = ({aboutMe}) => {
     return (
         <Card className = {`shadow ${styles.aboutMeCard} mb-3`}>
             <CardHeader>
-                <b>About Me</b>
+                <h3><b>About Me</b></h3>
             </CardHeader>
             <CardBody>
                 {paragraphs}

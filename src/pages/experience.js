@@ -40,7 +40,7 @@ class ExperiencePage extends Component {
     }
     
     componentDidMount = () => {
-        fetch('https://raw.githubusercontent.com/RYLiang18/personal_site_json/main/experience.json')
+        fetch('https://raw.githack.com/RYLiang18/personal_site_json/main/experience.json')
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -83,7 +83,7 @@ class ExperiencePage extends Component {
             
             retComponent = (
                 <div>
-                    <h1>Experiences 💼</h1>
+                    <h1><b>Experiences 💼</b></h1>
                     <br/>
                     {ExperienceCardComponents}
                 </div>

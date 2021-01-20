@@ -38,7 +38,7 @@ class ProjectsPage extends Component {
     }
 
     componentDidMount = () => {
-        fetch('https://raw.githubusercontent.com/RYLiang18/personal_site_json/main/projects.json')
+        fetch('https://raw.githack.com/RYLiang18/personal_site_json/main/projects.json')
             .then(response => response.json())
             .then(data => {
                 console.log("FUCKING REAAADD")
@@ -78,7 +78,7 @@ class ProjectsPage extends Component {
 
             retComponent = (
                 <div>
-                    <h1>Projects 👨🏻‍💻</h1>
+                    <h1><b>Projects 👨🏻‍💻</b></h1>
                     <br/>
                     {ProjectCardComponents}
                 </div>
@@ -107,7 +107,7 @@ class ProjectsPage extends Component {
                         className = "ryliang18-github-calendar mt-4"
                     />
                 </a>
-                <p className = "github-calendar-label">
+                <p className = "github-calendar-label pt-2">
                     @RYLiang18's contributions on
                     <img
                         src = "https://img.icons8.com/material-sharp/24/000000/github.png"
