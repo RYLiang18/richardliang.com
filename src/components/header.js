@@ -32,7 +32,7 @@ class Header extends Component {
   }
   
   componentDidMount = () => {
-    fetch('https://raw.githack.com/RYLiang18/personal_site_json/main/links.json')
+    fetch('https://raw.githubusercontent.com/RYLiang18/personal_site_json/main/links.json')
       .then(response => response.json())
       .then(data => {
         this.setState({

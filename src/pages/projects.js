@@ -39,7 +39,7 @@ class ProjectsPage extends Component {
     }
 
     componentDidMount = () => {
-        fetch('https://raw.githack.com/RYLiang18/personal_site_json/main/projects.json')
+        fetch('https://raw.githubusercontent.com/RYLiang18/personal_site_json/main/projects.json')
             .then(response => response.json())
             .then(data => {
                 console.log("FUCKING REAAADD")

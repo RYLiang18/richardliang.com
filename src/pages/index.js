@@ -29,8 +29,8 @@ class IndexPage extends Component {
   // running fetch calls to get most recent state from github
   componentDidMount = () =>{
     Promise.all([
-      fetch('https://raw.githack.com/RYLiang18/personal_site_json/main/links.json').then(response => response.json()),
-      fetch('https://raw.githack.com/RYLiang18/personal_site_json/main/homepage.json').then(response => response.json())
+      fetch('https://raw.githubusercontent.com/RYLiang18/personal_site_json/main/links.json').then(response => response.json()),
+      fetch('https://raw.githubusercontent.com/RYLiang18/personal_site_json/main/homepage.json').then(response => response.json())
     ]).then(data =>{
       console.log(data)
       this.setState({

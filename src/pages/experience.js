@@ -42,7 +42,7 @@ class ExperiencePage extends Component {
     }
     
     componentDidMount = () => {
-        fetch('https://raw.githack.com/RYLiang18/personal_site_json/main/experience.json')
+        fetch('https://raw.githubusercontent.com/RYLiang18/personal_site_json/main/experience.json')
             .then(response => response.json())
             .then(data => {
                 this.setState({
